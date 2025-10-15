@@ -171,7 +171,9 @@ func export_animation(animation: Animation, anim_name: StringName) -> String:
 	for track_idx in animation.get_track_count():
 	
 		var path: NodePath = animation.track_get_path(track_idx)
-		var node: Node = get_tree().edited_scene_root.get_node(path)
+		# At one point this didnt work and it needed to be
+		# get_tree().edited_scene_root.get_node(path) instead
+		var node: Node = get_node(path)
 		if not node is Node3D:
 			push_error("Invalid animation track export on non-3D node %s (%s) in animation %s on track %s."%[
 				node.name,node,anim_name,track_idx
