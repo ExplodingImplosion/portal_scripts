@@ -60,7 +60,7 @@ const MOD_VECTOR_STRING = "mod.CreateVector(%s, %s, %s)"
 
 func get_move_over_time_func(object_name: String, relative_pos: Vector3, relative_rot: Vector3, relative_time: float, should_loop := false, should_reverse := false) -> String:
 	return "mod.MoveObjectOverTime(%s,%s,%s,%s,%s,%s)"%[
-		object_name,relative_pos,relative_rot,relative_time,should_loop,should_reverse
+		object_name,get_mod_vector(relative_pos),get_mod_vector(relative_pos),relative_time,should_loop,should_reverse
 	]
 
 func get_mod_vector(vec: Vector3) -> String:
